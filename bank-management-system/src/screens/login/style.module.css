@@ -1,0 +1,77 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: aquamarine;
+}
+
+.login_form_container{
+    width: 30%;
+    height: 70%;
+    background-color:aqua;
+    border-radius: 10px;
+    padding: 0.5rem;
+}
+
+.avatar_container{
+    width: 100%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: antiquewhite; */
+}
+
+.login_avatar{
+    width: 30%;
+    height: 30%;
+    /* border-radius: 50%; */
+    /* background-color: red; */
+}
+
+.login_form{
+    width: 100%;
+    height: 100%;
+}
+
+.email_input_container{
+    width: 100%;
+    height: 12%;
+    padding: 0.15rem;
+}
+.email_input{
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    border: none;
+    padding: 0.5rem;
+    font-family: 'consolas';
+}
+
+.password_input_container{
+    width: 100%;
+    height: 12%;
+    padding: 0.15rem;
+}
+
+.password_input{
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    border: none;
+    padding: 0.5rem;
+    font-family: 'consolas';
+}
+
+.btn_container {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0.5rem;
+}

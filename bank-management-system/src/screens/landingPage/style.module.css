@@ -1,0 +1,49 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100vw;
+}
+
+.content-wrapper {
+    height: 75%;
+    width: 50%;
+    margin: auto;
+    /* background-color: aquamarine; */
+}
+
+.image-container{
+    height: 50%;
+    width: 100%;
+    /* background-color: brown; */
+}
+
+.heading-container{
+    width: 100%;
+    height: 15%;
+    /* background-color: blueviolet; */
+}
+
+.heading{
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: 'consolas';
+}
+
+.description-container{
+    width: 100%;
+    height: 10%;
+    /* background-color: greenyellow; */
+}
+
+.description {
+    font-size: 1.5rem;
+    font-family: 'consolas';
+}
+
+.custom-btn{
+    width: "50% !important";
+}
