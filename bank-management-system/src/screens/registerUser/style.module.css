@@ -1,0 +1,165 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: aquamarine;
+}
+
+.signup_form_container{
+    width: 95%;
+    height: 85%;
+    background-color:aqua;
+    border : 1px solid black;
+    border-radius: 10px;
+    padding: 0.5rem;
+}
+
+.form_left {
+    width: 50%;
+    height: 100%;
+}
+.form_right {
+    width: 50%;
+    height: 100%;
+}
+.input_style {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.label_style {
+    padding : 0.25rem;
+    font-size: 1.25em;
+    font-family: 'consolas';
+    font-weight: bold;
+}
+
+.label_style_single_row {
+    padding : 0.25rem;
+    font-size: 1em;
+    font-family: 'consolas';
+    font-weight: bold;
+}
+
+.textfeild_style {
+    padding : 0.25rem;
+    font-size: 1.25em;
+    width: 70%;
+    font-family: 'consolas';
+    font-weight: bold;
+    border:none;
+    border-radius: 50px;
+}
+
+.textarea_style { 
+    padding : 0.25rem;
+    font-size: 1.25em;
+    width: 70%;
+    font-family: 'consolas';
+    font-weight: bold;
+    border:none;
+    border-radius: 10px;
+}
+
+.textfeild_style_single_row {
+    padding : 0.25rem;
+    font-size: 1.25em;
+    width: 60%;
+    font-family: 'consolas';
+    font-weight: bold;
+    border:none;
+    border-radius: 50px;
+}
+
+.registration_header_container{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header_text{
+    font-size: 200%;
+    font-family: 'consolas';
+    font-weight: bold;
+}
+
+.guardian_info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.citizenship_info{
+    display: flex;
+    margin-top : 1rem;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gender_info{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.guardian_type {
+    width: 30%;
+    display: flex;
+}
+
+.account_type{
+    width: 100%;
+    display: flex;
+}
+
+.citizenship{
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.state{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.country{
+    width: 35%;
+    display: flex;
+    justify-content: center;
+}
+
+.gender{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+}
+
+.martial_status {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+}
+
+.guardian_name{
+    width: 65%;
+    display: flex;
+}
+
+.next_btn_container{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
