@@ -13,6 +13,7 @@
     width: 30%;
     height: 70%;
     background-color:aqua;
+    border : 1px solid black;
     border-radius: 10px;
     padding: 0.5rem;
 }
@@ -27,15 +28,21 @@
 }
 
 .login_avatar{
-    width: 30%;
+    width: 50%;
     height: 30%;
-    /* border-radius: 50%; */
-    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .login_form{
     width: 100%;
     height: 100%;
+}
+
+.login_text{
+    font-family: 'consolas';
+    font-weight: bold;
 }
 
 .email_input_container{
@@ -71,7 +78,11 @@
     width: 100%;
     height: 20%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     padding: 0.5rem;
+}
+
+.footer_text{
+    font-family: 'consolas';
 }
