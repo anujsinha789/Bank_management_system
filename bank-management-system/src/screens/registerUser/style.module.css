@@ -6,13 +6,13 @@
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    background-color: aquamarine;
+    background-color: rgb(241, 241, 241);
 }
 
 .signup_form_container{
     width: 95%;
     height: 85%;
-    background-color:aqua;
+    background-color:rgb(190, 221, 221);
     border : 1px solid black;
     border-radius: 10px;
     padding: 0.5rem;
@@ -47,13 +47,13 @@
 }
 
 .textfeild_style {
-    padding : 0.25rem;
-    font-size: 1.25em;
+    padding : 0.5rem;
+    font-size: 1.05em;
     width: 70%;
     font-family: 'consolas';
     font-weight: bold;
     border:none;
-    border-radius: 50px;
+    border-radius: 10px;
 }
 
 .textarea_style { 
@@ -67,13 +67,13 @@
 }
 
 .textfeild_style_single_row {
-    padding : 0.25rem;
-    font-size: 1.25em;
+    padding : 0.5rem;
+    font-size: 1.05em;
     width: 60%;
     font-family: 'consolas';
     font-weight: bold;
     border:none;
-    border-radius: 50px;
+    border-radius: 10px;
 }
 
 .registration_header_container{
@@ -104,6 +104,13 @@
     align-items: center;
 }
 
+.dob_info {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .gender_info{
     display: flex;
     width: 100%;
@@ -117,7 +124,7 @@
 }
 
 .account_type{
-    width: 100%;
+    width: 50%;
     display: flex;
 }
 
@@ -126,6 +133,13 @@
     display: flex;
     justify-content: flex-start;
 }
+
+.dob{
+    width: 45%;
+    display: flex;
+    justify-content: flex-start;
+}
+
 
 .state{
     width: 50%;
