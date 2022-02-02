@@ -31,7 +31,7 @@ function EducationLoanApplication() {
 	};
 	return (
 		<div className={style.root}>
-			<nav className="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+			<nav className="navbar fixed-top navbar-expand-lg navbar-light bg-transparent">
 				<div className="container-fluid">
 					<button
 						className="navbar-toggler"
