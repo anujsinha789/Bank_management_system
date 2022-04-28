@@ -11,9 +11,9 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import { logoutUser, resetData } from "../../redux/actions/authentication";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { logoutUser, resetData } from "../../redux/actions/authentication";
 
 const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -26,9 +26,11 @@ const ResponsiveAppBar = () => {
 	const navigate = useNavigate();
 
 	const handleLogout = () => {
-		dispatch(logoutUser());
-		dispatch(resetData());
-		navigate("/", { replace: true });
+		setTimeout(() => {
+			dispatch(logoutUser());
+			dispatch(resetData());
+			navigate("/", { replace: true });
+		}, 2000);
 	};
 
 	const config = [
