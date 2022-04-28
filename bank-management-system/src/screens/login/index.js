@@ -32,9 +32,9 @@ function Login() {
 		if (isAuthenticated && !loading && username.length > 0) {
 			navigate("/userDashboard", { replace: true });
 		}
-		return () => {
-			dispatch(resetData);
-		};
+		// return () => {
+		// 	dispatch(resetData());
+		// };
 	}, [isAuthenticated]);
 
 	return (

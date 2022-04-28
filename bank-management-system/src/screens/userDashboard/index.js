@@ -2,12 +2,19 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import bankImg from "../../assets/bank_img.jpg";
+import ResponsiveAppBar from "../../components/atomic/navbar";
+import CustomizedSnackbars from "../../components/atomic/snackbar";
 import { logoutUser, resetData } from "../../redux/actions/authentication";
 import style from "./style.module.css";
 
 function UserDashboard() {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
+	const [snackbarDisplay, setSnackbarDisplay] = React.useState(false);
+
+	const handleSnackbarClose = () => {
+		setSnackbarDisplay(false);
+	};
 
 	const handleLogout = () => {
 		dispatch(logoutUser());
@@ -18,9 +25,19 @@ function UserDashboard() {
 		username: state.authentication.username,
 	}));
 
+	React.useEffect(() => {
+		setSnackbarDisplay(true);
+	}, []);
+
 	return (
 		<div className={style.root}>
-			<nav className="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+			<CustomizedSnackbars
+				open={snackbarDisplay}
+				handleClose={handleSnackbarClose}
+				severity="success"
+				message={`Successfully logged in as ${username}`}
+			/>
+			{/* <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-light">
 				<div className="container-fluid">
 					<button
 						className="navbar-toggler"
@@ -43,40 +60,11 @@ function UserDashboard() {
 						</ul>
 					</div>
 				</div>
-			</nav>
-			<div className={style["content-wrapper"]}>
-				<div className={style["image-container"]}>
-					<img src={bankImg} height={225} width={300} alt=""></img>
-				</div>
-				<div className={style["heading-container"]}>
-					<span className={style.heading}>Hello {username}</span>
-				</div>
-				<div className={style["description-container"]}>
-					<span className={style.description}>What would you like to do?</span>
-				</div>
-				<div className={style.btn_container}>
-					<Link to="/loanApplication">
-						<button type="button" className="btn btn-info">
-							Apply for a loan
-						</button>
-					</Link>
-					<div
-						style={{
-							padding: "0.5rem",
-							fontFamily: "consolas",
-							fontWeight: "bold",
-						}}
-					>
-						{" "}
-						OR{" "}
-					</div>
-					<Link to="/editUserDetails">
-						<button type="button" className="btn btn-success">
-							Edit User details
-						</button>
-					</Link>
-				</div>
+			</nav> */}
+			<div className={style.navbarContainer}>
+				<ResponsiveAppBar />
 			</div>
+			<div className={style["content-wrapper"]}>TBD</div>
 		</div>
 	);
 }

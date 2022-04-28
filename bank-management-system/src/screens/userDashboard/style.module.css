@@ -1,16 +1,12 @@
 .root {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     box-sizing: border-box;
     height: 100vh;
     width: 100vw;
 }
 
 .content-wrapper {
-    height: 75%;
-    width: 50%;
+    height: 80%;
+    width: 100%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
