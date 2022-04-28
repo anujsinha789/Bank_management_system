@@ -6,7 +6,7 @@ import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
 import LoginIcon from "@mui/icons-material/Login";
 import style from "./style.module.css";
-import { authenticateUser } from "../../redux/actions/authentication";
+import { authenticateUser, resetData } from "../../redux/actions/authentication";
 
 function Login() {
 	const [checked, setChecked] = React.useState(false);
@@ -32,6 +32,9 @@ function Login() {
 		if (isAuthenticated && !loading && username.length > 0) {
 			navigate("/userDashboard", { replace: true });
 		}
+		return () => {
+			dispatch(resetData);
+		};
 	}, [isAuthenticated]);
 
 	return (

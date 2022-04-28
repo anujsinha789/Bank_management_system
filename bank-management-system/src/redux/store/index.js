@@ -9,16 +9,16 @@ const sagaMiddleware = createSagaMiddleware();
 const middlewares = [sagaMiddleware];
 
 export const store = createStore(
-  rootReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__
-    ? compose(
-        applyMiddleware(...middlewares),
-        window.__REDUX_DEVTOOLS_EXTENSION__({
-          trace: true,
-          name: "REACT_TEMPLATE",
-        })
-      )
-    : applyMiddleware(...middlewares)
+	rootReducer,
+	window.__REDUX_DEVTOOLS_EXTENSION__
+		? compose(
+				applyMiddleware(...middlewares),
+				window.__REDUX_DEVTOOLS_EXTENSION__({
+					trace: true,
+					name: "BANK_MANANGEMENT_SYSTEM",
+				})
+		  )
+		: applyMiddleware(...middlewares)
 );
 
 sagaMiddleware.run(rootSagas);

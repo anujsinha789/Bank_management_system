@@ -42,25 +42,26 @@ function RegisterUser() {
 		message: state.registerUser.message,
 	}));
 
-	const handleChange = ({ currentTarget: input }) => {
-		setData({ ...data, [input.name]: input.value });
-	};
+	// const handleChange = ({ currentTarget: input }) => {
+	// 	setData({ ...data, [input.name]: input.value });
+	// };
 
-	const handleOptionChange = ({ currentTarget: select }) => {
-		setData({ ...data, [select.name]: select.value });
-	};
+	// const handleOptionChange = ({ currentTarget: select }) => {
+	// 	setData({ ...data, [select.name]: select.value });
+	// };
 
-	const handleBtnClick = () => {
-		dispatch(registerUser(data));
-	};
+	// const handleFormSubmit = (event) => {
+	// 	event.preventDefault();
+	// 	dispatch(registerUser(data));
+	// };
 
-	const handleSnackbarClose = (event, reason) => {
-		if (reason === "clickaway") {
-			return;
-		}
+	// const handleSnackbarClose = (event, reason) => {
+	// 	if (reason === "clickaway") {
+	// 		return;
+	// 	}
 
-		setSnackbarOpen(false);
-	};
+	// 	setSnackbarOpen(false);
+	// };
 
 	React.useEffect(() => {
 		if (status.length > 0 && status !== "Success") {
@@ -74,7 +75,7 @@ function RegisterUser() {
 
 	return (
 		<div className={style.root}>
-			<div>
+			{/* <div>
 				<Backdrop
 					sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
 					open={loading}
@@ -101,6 +102,7 @@ function RegisterUser() {
 						justifyContent: "center",
 						alignItems: "center",
 					}}
+					onSubmit={handleFormSubmit}
 				>
 					<div className={style.form_left}>
 						<div className={style.input_style}>
@@ -113,6 +115,7 @@ function RegisterUser() {
 								name="name"
 								className={style.textfeild_style}
 								onChange={handleChange}
+								required
 							/>
 						</div>
 						<br />
@@ -358,17 +361,17 @@ function RegisterUser() {
 						<br />
 						<div className={style.next_btn_container}>
 							<button
-								type="button"
+								type="submit"
 								className="btn btn-success"
 								style={{ width: "150px", height: "40px" }}
-								onClick={handleBtnClick}
+								onClick={handleFormSubmit}
 							>
 								Go To Next Page
 							</button>
 						</div>
 					</div>
 				</form>
-			</div>
+			</div> */}
 		</div>
 	);
 }
