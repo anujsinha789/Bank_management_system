@@ -25,7 +25,6 @@ function* handleAuthenticateUserStartEvents(action) {
 		yield put(loginUserStarted());
 		yield delay(2000);
 		const response = yield call(callApi, action.payload);
-		console.log(response);
 		const { data } = response;
 		if (data.isAuthenticated) {
 			yield put(loginUserSuccess(data));
