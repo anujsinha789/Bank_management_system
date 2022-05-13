@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -11,12 +12,11 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { logoutUser, resetData } from "../../redux/actions/authentication";
-
-const pages = ["Products", "Pricing", "Blog"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+import { logoutUser, resetData } from "../../../redux/actions/authentication";
+import menuItems from "../MenuItems/items";
+import MenuItems from "./MenuItems";
 
 const ResponsiveAppBar = () => {
 	const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -26,43 +26,20 @@ const ResponsiveAppBar = () => {
 	const navigate = useNavigate();
 
 	const handleLogout = () => {
+		dispatch(logoutUser());
+		dispatch(resetData());
 		setTimeout(() => {
-			dispatch(logoutUser());
-			dispatch(resetData());
 			navigate("/", { replace: true });
 		}, 2000);
 	};
 
-	const config = [
-		{
-			id: 1,
-			item: "Profile",
-			navTo: "/Profile",
-			onClick: () => {},
-		},
-		{
-			id: 2,
-			item: "Account",
-			navTo: "/Account",
-			onClick: () => {},
-		},
-		{
-			id: 3,
-			item: "Dashboard",
-			navTo: "/Dashboard",
-			onClick: () => {},
-		},
-		{
-			id: 4,
-			item: "Logout",
-			navTo: "/Logout",
-			onClick: handleLogout,
-		},
-	];
+	const { username } = useSelector((state) => ({
+		username: state.authentication.username,
+	}));
 
-	// const { username } = useSelector((state) => ({
-	// 	username: state.authentication.username,
-	// }));
+	React.useEffect(() => {
+		if (username === "" || username.length === 0) navigate("/", { replace: true });
+	}, []);
 
 	const handleOpenNavMenu = (event) => {
 		setAnchorElNav(event.currentTarget);
@@ -80,7 +57,7 @@ const ResponsiveAppBar = () => {
 	};
 
 	return (
-		<AppBar position="static">
+		<AppBar position="static" style={{ backgroundColor: "#303f9f !important" }}>
 			<Container maxWidth="xl">
 				<Toolbar disableGutters>
 					<Typography
@@ -121,11 +98,17 @@ const ResponsiveAppBar = () => {
 								display: { xs: "block", md: "none" },
 							}}
 						>
-							{pages.map((page) => (
-								<MenuItem key={page} onClick={handleCloseNavMenu}>
-									<Typography textAlign="center">{page}</Typography>
+							{menuItems.map((item) => (
+								<MenuItem key={Math.random()} onClick={handleCloseNavMenu}>
+									<Typography textAlign="center">{item.title}</Typography>
 								</MenuItem>
 							))}
+							{/* {menuItems.map((menu, index) => {
+								const depthLevel = 0;
+								return (
+									<MenuItems items={menu} key={index} depthLevel={depthLevel} />
+								);
+							})} */}
 						</Menu>
 					</Box>
 					<Typography
@@ -137,24 +120,31 @@ const ResponsiveAppBar = () => {
 						LOGO
 					</Typography>
 					<Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-						{pages.map((page) => (
+						{menuItems.map((item) => (
 							<Button
-								key={page}
+								key={Math.random()}
 								onClick={handleCloseNavMenu}
 								sx={{ my: 2, color: "white", display: "block" }}
 							>
-								{page}
+								{item.title}
 							</Button>
 						))}
 					</Box>
 
 					<Box sx={{ flexGrow: 0 }}>
-						<Tooltip title="Open settings">
+						<Button
+							key={Math.random()}
+							onClick={handleLogout}
+							sx={{ my: 2, color: "white", display: "block" }}
+						>
+							Logout
+						</Button>
+						{/* <Tooltip title="Open settings">
 							<IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
 								<Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
 							</IconButton>
-						</Tooltip>
-						<Menu
+						</Tooltip> */}
+						{/* <Menu
 							sx={{ mt: "45px" }}
 							id="menu-appbar"
 							anchorEl={anchorElUser}
@@ -177,7 +167,7 @@ const ResponsiveAppBar = () => {
 									</Typography>
 								</MenuItem>
 							))}
-						</Menu>
+						</Menu> */}
 					</Box>
 				</Toolbar>
 			</Container>

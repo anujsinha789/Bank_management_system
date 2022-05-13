@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import ResponsiveAppBar from "../../components/atomic/navbar";
+import ResponsiveAppBar from "../../components/atomic/Navbar/navbar";
 import CustomizedSnackbars from "../../components/atomic/snackbar";
 import { logoutUser, resetData } from "../../redux/actions/authentication";
 import style from "./style.module.css";
@@ -21,15 +21,19 @@ function UserDashboard() {
 
 	React.useEffect(() => {
 		setSnackbarDisplay(true);
-	}, []);
+	}, [username]);
 
 	return (
 		<div className={style.root}>
 			<CustomizedSnackbars
 				open={snackbarDisplay}
 				handleClose={handleSnackbarClose}
-				severity="success"
-				message={`Successfully logged in as ${username}`}
+				severity={username.length !== 0 ? "success" : "error"}
+				message={
+					username.length !== 0
+						? `Successfully logged in as ${username}`
+						: `Logging you out!`
+				}
 			/>
 			<div className={style.navbarContainer}>
 				<ResponsiveAppBar />
