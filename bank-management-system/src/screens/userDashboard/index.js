@@ -1,17 +1,27 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { Typography } from "@mui/material";
 import Navbar from "../../components/atomic/Navbar/navbar";
 import CustomizedSnackbars from "../../components/atomic/snackbar";
 import { logoutUser, resetData } from "../../redux/actions/authentication";
 import style from "./style.module.css";
 import SideDrawer from "../../components/atomic/Drawer/index";
-import { Typography } from "@mui/material";
+import { setDrawerClose } from "../../redux/actions/drawerActions";
 
 function UserDashboard() {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const [snackbarDisplay, setSnackbarDisplay] = React.useState(false);
+
+	const handleLogout = () => {
+		dispatch(setDrawerClose("userDashboard"));
+		dispatch(logoutUser());
+		dispatch(resetData());
+		setTimeout(() => {
+			navigate("/", { replace: true });
+		}, 2000);
+	};
 
 	const handleSnackbarClose = () => {
 		setSnackbarDisplay(false);
@@ -41,7 +51,7 @@ function UserDashboard() {
 				<Navbar />
 			</div>
 			<div className={style["content-wrapper"]}>
-				<SideDrawer>
+				<SideDrawer handleLogout={handleLogout}>
 					<Typography paragraph>
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
 						tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
