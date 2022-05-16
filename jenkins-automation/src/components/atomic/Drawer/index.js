@@ -32,39 +32,6 @@ import { makeStyles } from "@material-ui/core";
 
 const drawerWidth = 240;
 
-const drawerItems = [
-	{
-		id: 1,
-		itemText: "Home",
-		icon: <HomeIcon />,
-	},
-	{
-		id: 2,
-		itemText: "Integrate",
-		icon: <HandymanIcon />,
-	},
-	{
-		id: 3,
-		itemText: "About",
-		icon: <InfoIcon />,
-	},
-	{
-		id: 4,
-		itemText: "Q&A",
-		icon: <HelpIcon />,
-	},
-	{
-		id: 5,
-		itemText: "Langauge",
-		icon: <LanguageIcon />,
-	},
-	{
-		id: 6,
-		itemText: "Logout",
-		icon: <LogoutIcon />,
-	},
-];
-
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
 	({ theme, open }) => ({
 		flexGrow: 1,
@@ -102,6 +69,7 @@ export default function SideDrawer(props) {
 	const theme = useTheme();
 	const dispatch = useDispatch();
 	const classes = useStyles();
+	const { children, handleLogout } = props;
 
 	const { isDrawerOpen, username } = useSelector((state) => ({
 		isDrawerOpen: state.drawerState.isDrawerOpen,
@@ -111,6 +79,45 @@ export default function SideDrawer(props) {
 	const handleDrawerClose = () => {
 		dispatch(setDrawerClose("userDashboard"));
 	};
+
+	const drawerItems = [
+		{
+			id: 1,
+			itemText: "Home",
+			icon: <HomeIcon />,
+			onClick: () => {},
+		},
+		{
+			id: 2,
+			itemText: "Integrate",
+			icon: <HandymanIcon />,
+			onClick: () => {},
+		},
+		{
+			id: 3,
+			itemText: "About",
+			icon: <InfoIcon />,
+			onClick: () => {},
+		},
+		{
+			id: 4,
+			itemText: "Q&A",
+			icon: <HelpIcon />,
+			onClick: () => {},
+		},
+		{
+			id: 5,
+			itemText: "Langauge",
+			icon: <LanguageIcon />,
+			onClick: () => {},
+		},
+		{
+			id: 6,
+			itemText: "Logout",
+			icon: <LogoutIcon />,
+			onClick: handleLogout,
+		},
+	];
 
 	return (
 		<Box sx={{ display: "flex" }}>
@@ -152,7 +159,7 @@ export default function SideDrawer(props) {
 				<List style={{ height: "60%" }}>
 					{drawerItems.map((item, index) => (
 						<ListItem key={item.id}>
-							<ListItemButton>
+							<ListItemButton onClick={item.onClick}>
 								<ListItemIcon>{item.icon}</ListItemIcon>
 								<ListItemText primary={item.itemText} />
 							</ListItemButton>
@@ -161,7 +168,7 @@ export default function SideDrawer(props) {
 				</List>
 				<Divider />
 			</Drawer>
-			<Main open={isDrawerOpen}>{props.children}</Main>
+			<Main open={isDrawerOpen}>{children}</Main>
 		</Box>
 	);
 }

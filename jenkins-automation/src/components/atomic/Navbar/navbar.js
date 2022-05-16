@@ -9,13 +9,14 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { logoutUser, resetData } from "../../../redux/actions/authentication";
-import { setDrawerOpen } from "../../../redux/actions/drawerActions";
+import { setDrawerClose, setDrawerOpen } from "../../../redux/actions/drawerActions";
 
 export default function Navbar() {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
 	const handleLogout = () => {
+		dispatch(setDrawerClose("userDashboard"));
 		dispatch(logoutUser());
 		dispatch(resetData());
 		setTimeout(() => {
