@@ -1,3 +1,7 @@
+*{
+  font-family: 'consolas';
+}
+
 .App {
   text-align: center;
 }

@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import * as React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -5,15 +7,31 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
+import { makeStyles } from "@material-ui/core";
 import { logoutUser, resetData } from "../../../redux/actions/authentication";
 import { setDrawerClose, setDrawerOpen } from "../../../redux/actions/drawerActions";
 
+const useStyles = makeStyles({
+	logoutBtn: {
+		padding: "0.5rem",
+		borderRadius: "50px",
+		width: "95px",
+		fontFamily: "consolas",
+		"&:hover": {
+			backgroundColor: "#bbdefb",
+			color: "#000",
+			transition: "ease 0.5s",
+			border: "none",
+			cursor: "pointer",
+		},
+	},
+});
 export default function Navbar() {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
+	const classes = useStyles();
 
 	const handleLogout = () => {
 		dispatch(setDrawerClose("userDashboard"));
@@ -53,9 +71,9 @@ export default function Navbar() {
 					<Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
 						Welcome to Automated DevSevOps integration tool
 					</Typography>
-					<Button color="inherit" onClick={handleLogout}>
+					<div onClick={handleLogout} className={classes.logoutBtn}>
 						Logout
-					</Button>
+					</div>
 				</Toolbar>
 			</AppBar>
 		</Box>
